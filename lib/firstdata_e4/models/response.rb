@@ -1,0 +1,86 @@
+module Killbill #:nodoc:
+  module FirstdataE4 #:nodoc:
+    class FirstdataE4Response < ::Killbill::Plugin::ActiveMerchant::ActiveRecord::Response
+
+      self.table_name = 'firstdata_e4_responses'
+
+      has_one :firstdata_e4_transaction
+
+      def self.from_response(api_call, kb_account_id, kb_payment_id, kb_payment_transaction_id, transaction_type, payment_processor_account_id, kb_tenant_id, response, extra_params = {}, model = ::Killbill::FirstdataE4::FirstdataE4Response)
+        super(api_call,
+              kb_account_id,
+              kb_payment_id,
+              kb_payment_transaction_id,
+              transaction_type,
+              payment_processor_account_id,
+              kb_tenant_id,
+              response,
+              {
+                  :params_amount_requested     => extract(response, 'amount_requested'),
+                  :params_authorization_num    => extract(response, 'authorization_num'),
+                  :params_avs                  => extract(response, 'avs'),
+                  :params_bank_message         => extract(response, 'bank_message'),
+                  :params_bank_resp_code       => extract(response, 'bank_resp_code'),
+                  :params_bank_resp_code_2     => extract(response, 'bank_resp_code_2'),
+                  :params_card_cost            => extract(response, 'card_cost'),
+                  :params_card_holders_name    => extract(response, 'card_holders_name'),
+                  :params_card_type            => extract(response, 'card_type'),
+                  :params_cavv                 => extract(response, 'cavv'),
+                  :params_cavv_algorithm       => extract(response, 'cavv_algorithm'),
+                  :params_cavv_response        => extract(response, 'cavv_response'),
+                  :params_client_email         => extract(response, 'client_email'),
+                  :params_client_ip            => extract(response, 'client_ip'),
+                  :params_ctr                  => extract(response, 'ctr'),
+                  :params_currency             => extract(response, 'currency'),
+                  :params_current_balance      => extract(response, 'current_balance'),
+                  :params_customer_ref         => extract(response, 'customer_ref'),
+                  :params_cvd_presence_ind     => extract(response, 'cvd_presence_ind'),
+                  :params_cvv2                 => extract(response, 'cvv2'),
+                  :params_dollar_amount        => extract(response, 'dollar_amount'),
+                  :params_ean                  => extract(response, 'ean'),
+                  :params_ecommerce_flag       => extract(response, 'ecommerce_flag'),
+                  :params_error_description    => extract(response, 'error_description'),
+                  :params_exact_id             => extract(response, 'exact_id'),
+                  :params_error_number         => extract(response, 'error_number'),
+                  :params_exact_message        => extract(response, 'exact_message'),
+                  :params_exact_resp_code      => extract(response, 'exact_resp_code'),
+                  :params_language             => extract(response, 'language'),
+                  :params_merchant_address     => extract(response, 'merchant_address'),
+                  :params_merchant_city        => extract(response, 'merchant_city'),
+                  :params_merchant_country     => extract(response, 'merchant_country'),
+                  :params_merchant_name        => extract(response, 'merchant_name'),
+                  :params_merchant_postal      => extract(response, 'merchant_postal'),
+                  :params_merchant_province    => extract(response, 'merchant_province'),
+                  :params_merchant_url         => extract(response, 'merchant_url'),
+                  :params_pan                  => extract(response, 'pan'),
+                  :params_partial_redemption   => extract(response, 'partial_redemption'),
+                  :params_password             => extract(response, 'password'),
+                  :params_previous_balance     => extract(response, 'previous_balance'),
+                  :params_reference_3          => extract(response, 'reference_3'),
+                  :params_reference_no         => extract(response, 'reference_no'),
+                  :params_retrieval_ref_no     => extract(response, 'retrieval_ref_no'),
+                  :params_secure_auth_required => extract(response, 'secure_auth_required'),
+                  :params_secure_auth_result   => extract(response, 'secure_auth_result'),
+                  :params_sequence_no          => extract(response, 'sequence_no'),
+                  :params_surcharge_amount     => extract(response, 'surcharge_amount'),
+                  :params_tax1_amount          => extract(response, 'tax1_amount'),
+                  :params_tax1_number          => extract(response, 'tax1_number'),
+                  :params_tax2_amount          => extract(response, 'tax2_amount'),
+                  :params_tax2_number          => extract(response, 'tax2_number'),
+                  :params_track1               => extract(response, 'track1'),
+                  :params_track2               => extract(response, 'track2'),
+                  :params_transaction_approved => extract(response, 'transaction_approved'),
+                  :params_transaction_error    => extract(response, 'transaction_error'),
+                  :params_transaction_tag      => extract(response, 'transaction_tag'),
+                  :params_transaction_type     => extract(response, 'transaction_type'),
+                  :params_transarmor_token     => extract(response, 'transarmor_token'),
+                  :params_verification_str1    => extract(response, 'verification_str1'),
+                  :params_virtual_card         => extract(response, 'virtual_card'),
+                  :params_xid                  => extract(response, 'xid'),
+                  :params_zip_code             => extract(response, 'zip_code')
+              }.merge!(extra_params),
+              model)
+      end
+    end
+  end
+end
