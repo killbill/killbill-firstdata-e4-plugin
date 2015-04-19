@@ -19,8 +19,6 @@ _yardoc
 doc/
 
 .jbundler
-Jarfile.lock
-Gemfile.lock
 
 .DS_Store
 
@@ -30,7 +28,11 @@ killbill-firstdata_e4/
 # Testing database
 test.db
 
+firstdata_e4.log
+
 target
 pom.xml.asc
 
 .idea/
+
+Gemfile.head.lock

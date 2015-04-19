@@ -19,6 +19,7 @@ describe Killbill::FirstdataE4::PaymentPlugin do
       @plugin.logger.level = Logger::INFO
       @plugin.conf_dir     = File.dirname(file)
       @plugin.kb_apis      = Killbill::Plugin::KillbillApi.new('firstdata_e4', {})
+      @plugin.root         = '/foo/killbill-firstdata-e4/0.0.1'
 
       # Start the plugin here - since the config file will be deleted
       @plugin.start_plugin

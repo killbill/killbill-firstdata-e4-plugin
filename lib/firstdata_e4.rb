@@ -22,4 +22,3 @@ require 'firstdata_e4/private_api'
 require 'firstdata_e4/models/payment_method'
 require 'firstdata_e4/models/response'
 require 'firstdata_e4/models/transaction'
-
